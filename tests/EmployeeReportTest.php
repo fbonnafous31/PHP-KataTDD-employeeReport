@@ -22,7 +22,12 @@ use PHPUnit\Framework\TestCase;
         
         // As shop owner I want to view a list of all employees, which are older than 18 years, so that I know who is allowed to work on Sundays.
         public function testIfEmployeeUnder18() {
-            assertEquals(['Max', 'Nina'], $this->employees::EmployeesUnder18($this->datas));
+            assertEquals(['Sepp', 'Mike'], $this->employees::Older18($this->datas));
+        }
+
+        // As shop owner I want the list of employees to be sorted by their name, so I can find employees easier.
+        public function testEmployeesSortByName() {
+            assertEquals(['Max', 'Mike', 'Nina', 'Sepp'], $this->employees::SortByName($this->datas));
         }
 
     }
