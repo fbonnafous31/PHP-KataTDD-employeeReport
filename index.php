@@ -30,7 +30,7 @@ require_once ('src/EmployeeReport.php');
     }
 
     echo "<br><br>Liste de employés triés par nom";
-    $sortByName = $employees::SortByName($datas);
+    $sortByName = $employees::SortByName($datas, 'SORT_ASC');
     foreach ($sortByName as $employee) {
         echo "<br>".$employee;
     }

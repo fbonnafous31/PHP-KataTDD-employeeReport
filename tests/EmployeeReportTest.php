@@ -27,17 +27,17 @@ use PHPUnit\Framework\TestCase;
 
         // As shop owner I want the list of employees to be sorted by their name, so I can find employees easier.
         public function testEmployeesSortByNameAsc() {
-            assertEquals(['Max', 'Mike', 'Nina', 'Sepp'], $this->employees::SortByNameAsc($this->datas));
+            assertEquals(['Max', 'Mike', 'Nina', 'Sepp'], $this->employees::SortByName($this->datas, SORT_ASC));
+        }
+
+        // As shop owner I want the employees to be sorted by their names descending instead of ascending
+        public function testEmployeesSortByNameDesc() {
+            assertEquals(['Sepp', 'Nina', 'Mike', 'Max'], $this->employees::SortByName($this->datas, SORT_DESC));
         }
 
         // As shop owner I want the list of employees to be capitalized, so I can read it better.
         public function testCpitalListOfEmployees() {
             assertEquals(['MAX', 'SEPP', 'NINA', 'MIKE'], $this->employees::Capital($this->datas));
-        }
-
-        // As shop owner I want the employees to be sorted by their names descending instead of ascending
-        public function testEmployeesSortByNameDesc() {
-            assertEquals(['Sepp', 'Nina', 'Mike', 'Max'], $this->employees::SortByNameDesc($this->datas));
         }
 
     }

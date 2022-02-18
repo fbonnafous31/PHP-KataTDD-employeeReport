@@ -20,23 +20,11 @@
             return $list;
         }
 
-        public static function SortByNameAsc(array $employees) {
+        public static function SortByName(array $employees, int $sort) {
             $list[] = '';
             $i = 0;
             $columns = array_column($employees, 'name');
-            array_multisort($columns, SORT_ASC, $employees);
-            foreach ($employees as $employee) {
-                $list[$i] = $employee['name'];
-                $i++;
-            }
-            return $list;
-        }
-
-        public static function SortByNameDesc(array $employees) {
-            $list[] = '';
-            $i = 0;
-            $columns = array_column($employees, 'name');
-            array_multisort($columns, SORT_DESC, $employees);
+            array_multisort($columns, $sort, $employees);
             foreach ($employees as $employee) {
                 $list[$i] = $employee['name'];
                 $i++;
