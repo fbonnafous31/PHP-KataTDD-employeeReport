@@ -13,9 +13,6 @@ require_once ('src/EmployeeReport.php');
 
     $employees = new EmployeeReport();
 
-    echo "<br>Liste des employés";
-    $allEmployees = $employees::listEmployees($datas);
-
     foreach ($allEmployees as $employee) {
         echo "<br>".$employee['name']." - ".$employee['age']. " ans";
     }
