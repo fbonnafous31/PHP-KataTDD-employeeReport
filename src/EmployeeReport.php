@@ -9,27 +9,49 @@
         }
 
         public static function Older18(array $employees) {
-            $under18[] = '';
+            $list[] = '';
             $i = 0;
             foreach ($employees as $employee) {
                 if ($employee['age'] >= 18) {
-                    $under18[$i] = $employee['name'];
+                    $list[$i] = $employee['name'];
                     $i++;
                 }
             }
-            return $under18;
+            return $list;
         }
 
-        public static function SortByName(array $employees) {
-            $sortByName[] = '';
+        public static function SortByNameAsc(array $employees) {
+            $list[] = '';
             $i = 0;
             $columns = array_column($employees, 'name');
             array_multisort($columns, SORT_ASC, $employees);
             foreach ($employees as $employee) {
-                $sortByName[$i] = $employee['name'];
+                $list[$i] = $employee['name'];
                 $i++;
             }
-            return $sortByName;
+            return $list;
+        }
+
+        public static function SortByNameDesc(array $employees) {
+            $list[] = '';
+            $i = 0;
+            $columns = array_column($employees, 'name');
+            array_multisort($columns, SORT_DESC, $employees);
+            foreach ($employees as $employee) {
+                $list[$i] = $employee['name'];
+                $i++;
+            }
+            return $list;
+        }
+
+        public static function Capital(array $employees) {
+            $list[] = '';
+            $i = 0;
+            foreach ($employees as $employee) {
+                $list[$i] = strtoupper($employee['name']);
+                $i++;
+            }
+            return $list;
         }
 
     }
